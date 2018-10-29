@@ -13,7 +13,7 @@ const GAMES_TO_PLAY = 10;
  * Eftir leik er notanda boðið að spila annan leik, ef ekki hættir forrit.
  */
 function start() {
-  alert("Velkomin(n) í reikningshraðalinn! \n Nú koma " + GAMES_TO_PLAY + " einföld reikningsdæmi sem þú skalt svara rétt eins hratt og þú getur. Ýttu á OK til að byrja. \n Gangi þér vel!")
+  alert("Velkomin(n) í reikningshraðalinn! \n Markmiðið er að svara eins mörgum af " + GAMES_TO_PLAY + " dæmum rétt eins hratt og mögulegt er. \n Gangi þér vel!")
 
   do {
     play();
@@ -35,9 +35,9 @@ function start() {
  */
 function play() {
 
-  const start = new Date();
-
   let rettSvor = 0;
+  
+  const start = new Date();
 
 /**
  *  Spyrjum tíu spurninga, ef notandi ýtir á cancel er hætt. Gildið úr ask() fallinu er 1 ef svarað er rétt, 
@@ -54,14 +54,14 @@ function play() {
 /** 
  * Sé svar === null, þ.e. notandi hefur ýtt á cancel er hætt í leik, en annars hefur for lykkjan klárast og 
  * þá er leikurinn búinn og upplýsingar um hvernig notandinn stóð sig birtast.
-*/
+*/   
+  const finish = new Date();
+
   if (svar === null) {
     alert("Hætt í leik");
   }
   else {
-    const finish = new Date();
-
-    const finishTime = (finish -start)/1000;
+    const finishTime = (finish - start)/1000;
 
     alert("Leiknum er lokið. Þú leystir " + rettSvor + " af " + GAMES_TO_PLAY + " dæmum rétt á " + finishTime.toFixed(2) + " sekúndum. \n Meðalrétt svör á sekúndu eru " + (rettSvor/finishTime).toFixed(2));
   }
